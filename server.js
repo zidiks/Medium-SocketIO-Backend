@@ -11,7 +11,7 @@ const Users = require('./UserModel')
 
 // database connection
 
-mongoose.connect('mongodb://localhost:27017/realtimeProject',{useNewUrlParser:true},
+mongoose.connect('mongodb+srv://zidiks:Karambatv123@cluster0.yvl9z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',{useNewUrlParser:true},
     function(err){
         if(err){
             throw err
@@ -20,7 +20,7 @@ mongoose.connect('mongodb://localhost:27017/realtimeProject',{useNewUrlParser:tr
         
         io.on('connection',(socket)=>{
             console.log('user connected')
-            socket.on('joinRoom',(data)=>{      // data will look like => {myID: "123123"}
+            socket.on('joinRoom',(data)=>{
                 console.log('user joined room')
                 socket.join(data.myID)          
 
